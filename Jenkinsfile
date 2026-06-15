@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/willfoot123/cloud-devops-ci-cd-pipeline.git'
+                git branch: 'main', url: 'https://github.com/willfoot123/cloud-devops-ci-cd-pipeline.git'
             }
         }
 
