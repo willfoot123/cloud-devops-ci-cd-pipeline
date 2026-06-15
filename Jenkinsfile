@@ -14,10 +14,9 @@ pipeline {
             }
         }
 
-        stage('Stop Old Containers') {
+        stage('Remove Old Container') {
             steps {
-                sh 'docker stop $(docker ps -q) || true'
-                sh 'docker rm $(docker ps -aq) || true'
+                sh 'docker rm -f devops-container || true'
             }
         }
 
