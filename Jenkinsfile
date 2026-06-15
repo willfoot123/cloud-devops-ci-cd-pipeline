@@ -14,9 +14,15 @@ pipeline {
             }
         }
 
+        stage('Stop Old Container') {
+            steps {
+                sh 'docker rm -f devops-container || true'
+            }
+        }
+
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 3000:3000 devops-app'
+                sh 'docker run -d -p 3000:3000 --name devops-container devops-app'
             }
         }
     }
